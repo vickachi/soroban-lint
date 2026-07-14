@@ -4,13 +4,17 @@ version = "0.1.0"
 edition = "2021"
 description = "A static analysis tool for Soroban smart contracts"
 license = "MIT"
-repository = "https://github.com/YOUR_USERNAME/soroban-lint"
+repository = "https://github.com/vickachi/soroban-lint"
 keywords = ["soroban", "stellar", "lint", "static-analysis", "blockchain"]
 categories = ["development-tools", "command-line-utilities"]
 
 [[bin]]
 name = "soroban-lint"
 path = "src/main.rs"
+
+[lib]
+name = "soroban_lint"
+path = "src/lib.rs"
 
 [dependencies]
 clap = { version = "4.0", features = ["derive"] }
