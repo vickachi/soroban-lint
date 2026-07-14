@@ -1,0 +1,24 @@
+[package]
+name = "soroban-lint"
+version = "0.1.0"
+edition = "2021"
+description = "A static analysis tool for Soroban smart contracts"
+license = "MIT"
+repository = "https://github.com/YOUR_USERNAME/soroban-lint"
+keywords = ["soroban", "stellar", "lint", "static-analysis", "blockchain"]
+categories = ["development-tools", "command-line-utilities"]
+
+[[bin]]
+name = "soroban-lint"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.0", features = ["derive"] }
+walkdir = "2.3"
+colored = "2.0"
+syn = { version = "2.0", features = ["full", "visit"] }
+quote = "1.0"
+
+[dev-dependencies]
+assert_cmd = "2.0"
+predicates = "3.0"
