@@ -41,7 +41,8 @@ pub fn check(source: &str, file: &str) -> Vec<LintResult> {
                     "DataKey::{} is defined but never used in any storage call.",
                     variant
                 ),
-                help: "Remove unused storage keys or add the missing storage operations.".to_string(),
+                help: "Remove unused storage keys or add the missing storage operations."
+                    .to_string(),
             });
         }
     }

@@ -1,13 +1,13 @@
-mod missing_auth_check;
-mod unbumped_ttl;
-mod panic_in_contract;
 mod hardcoded_address;
-mod unused_storage_key;
+mod missing_auth_check;
 mod missing_error_type;
+mod panic_in_contract;
+mod unbumped_ttl;
+mod unused_storage_key;
 
 pub use missing_auth_check::check as missing_auth_check_check;
-pub use unbumped_ttl::check as unbumped_ttl_check;
 pub use panic_in_contract::check as panic_in_contract_check;
+pub use unbumped_ttl::check as unbumped_ttl_check;
 
 use crate::runner::LintResult;
 

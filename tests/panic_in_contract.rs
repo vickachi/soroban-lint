@@ -9,10 +9,7 @@ fn test_panic_triggers() {
     "#;
 
     let path = std::env::temp_dir().join("test_panic.rs");
-    let results = soroban_lint::lints::panic_in_contract::check(
-        contract,
-        path.to_str().unwrap(),
-    );
+    let results = soroban_lint::lints::panic_in_contract::check(contract, path.to_str().unwrap());
     assert!(!results.is_empty(), "should detect panic! usage");
 }
 
@@ -28,9 +25,6 @@ fn test_panic_passes_with_result() {
     "#;
 
     let path = std::env::temp_dir().join("test_panic_ok.rs");
-    let results = soroban_lint::lints::panic_in_contract::check(
-        contract,
-        path.to_str().unwrap(),
-    );
+    let results = soroban_lint::lints::panic_in_contract::check(contract, path.to_str().unwrap());
     assert!(results.is_empty(), "should not flag Result-based errors");
 }

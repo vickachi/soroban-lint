@@ -1,5 +1,5 @@
-use std::process::Command;
 use std::fs;
+use std::process::Command;
 
 #[test]
 fn test_missing_auth_check_triggers() {
@@ -12,10 +12,7 @@ fn test_missing_auth_check_triggers() {
     let path = std::env::temp_dir().join("test_missing_auth.rs");
     fs::write(&path, contract).unwrap();
 
-    let results = soroban_lint::lints::missing_auth_check::check(
-        contract,
-        path.to_str().unwrap(),
-    );
+    let results = soroban_lint::lints::missing_auth_check::check(contract, path.to_str().unwrap());
     assert!(!results.is_empty(), "should detect missing auth");
 }
 
@@ -29,9 +26,6 @@ fn test_missing_auth_check_passes_with_auth() {
     "#;
 
     let path = std::env::temp_dir().join("test_auth_ok.rs");
-    let results = soroban_lint::lints::missing_auth_check::check(
-        contract,
-        path.to_str().unwrap(),
-    );
+    let results = soroban_lint::lints::missing_auth_check::check(contract, path.to_str().unwrap());
     assert!(results.is_empty(), "should not flag when auth present");
 }

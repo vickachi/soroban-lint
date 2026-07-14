@@ -35,9 +35,14 @@ fn main() {
         let infos = results.iter().filter(|r| r.severity == "info").count();
         println!(
             "\n{}",
-            format!("Found {} issues ({} warnings, {} info)", results.len(), warnings, infos)
-                .yellow()
-                .bold()
+            format!(
+                "Found {} issues ({} warnings, {} info)",
+                results.len(),
+                warnings,
+                infos
+            )
+            .yellow()
+            .bold()
         );
         std::process::exit(1);
     }

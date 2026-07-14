@@ -21,7 +21,8 @@ pub fn check(source: &str, file: &str) -> Vec<LintResult> {
                     severity: "warning".to_string(),
                     file: file.to_string(),
                     line: fn_start_line,
-                    message: "Function mutates contract state without calling require_auth().".to_string(),
+                    message: "Function mutates contract state without calling require_auth()."
+                        .to_string(),
                     help: "Add env.require_auth(&caller) before any state mutation.".to_string(),
                 });
             }
