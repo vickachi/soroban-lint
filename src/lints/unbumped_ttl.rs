@@ -10,7 +10,7 @@ pub fn check(source: &str, file: &str) -> Vec<LintResult> {
         // Look for persistent storage writes
         if line.contains("persistent().set(") || line.contains("persistent().put(") {
             // Check surrounding lines (within 5 lines) for extend_ttl
-            let start = if i >= 5 { i - 5 } else { 0 };
+            let start = i.saturating_sub(5);
             let end = (i + 5).min(source.lines().count());
             let surrounding: String = source.lines().skip(start).take(end - start).collect();
 

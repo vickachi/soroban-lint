@@ -21,7 +21,7 @@ pub fn run(path: &Path, quiet: bool) -> Vec<LintResult> {
     let files: Vec<_> = WalkDir::new(path)
         .into_iter()
         .filter_map(|e| e.ok())
-        .filter(|e| e.path().extension().map_or(false, |ext| ext == "rs"))
+        .filter(|e| e.path().extension().is_some_and(|ext| ext == "rs"))
         .collect();
 
     for entry in &files {
