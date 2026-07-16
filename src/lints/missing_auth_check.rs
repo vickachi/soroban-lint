@@ -12,6 +12,12 @@ pub fn check(source: &str, file: &str) -> Vec<LintResult> {
         let line_num = i + 1;
         let trimmed = line.trim();
 
+        // Skip comments — otherwise a comment mentioning require_auth() or
+        // .set( can silently satisfy/defeat the check below.
+        if trimmed.starts_with("//") {
+            continue;
+        }
+
         // Detect function start
         if trimmed.starts_with("pub fn") || trimmed.starts_with("fn ") {
             // If we were already in a function, check the previous one
